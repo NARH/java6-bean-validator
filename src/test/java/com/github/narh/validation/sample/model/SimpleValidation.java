@@ -12,6 +12,8 @@ import org.apache.bval.jsr.ApacheValidationProvider;
 import org.junit.Before;
 import org.junit.Test;
 
+import lombok.extern.slf4j.Slf4j;
+
 /*
  * Copyright (c) 2018, NARH https://github.com/NARH
  * All rights reserved.
@@ -43,6 +45,7 @@ import org.junit.Test;
  * @author narita
  *
  */
+@Slf4j
 public class SimpleValidation {
 
   private ValidatorFactory vf = Validation
@@ -62,7 +65,7 @@ public class SimpleValidation {
     SampleModel model =  new SampleModel();
     Set<ConstraintViolation<SampleModel>> results = validator.validate(model);
     for(ConstraintViolation<SampleModel> result:results)
-      System.out.println(result.getMessage());
+      log.info(result.getMessage());
   }
 
 
